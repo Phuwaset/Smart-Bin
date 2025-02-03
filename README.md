@@ -5,3 +5,6 @@ test fork as netify
 
 ......................
 test pass : ----- test
+
+----------------------
+Sync Fork อัตโนมัติด้วย GitHub Actions
