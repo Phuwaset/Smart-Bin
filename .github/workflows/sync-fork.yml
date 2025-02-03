@@ -1,0 +1,23 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # รันทุกวันเวลา 00:00 UTC (เปลี่ยนได้)
+  workflow_dispatch:  # ให้สามารถกดรันเองได้จาก Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add upstream repository
+        run: |
+          git remote add upstream https://github.com/thitirat5602/Smart-Bin.git
+          git fetch upstream
+          git checkout main
+          git merge upstream/main --no-edit
+          git push origin main
