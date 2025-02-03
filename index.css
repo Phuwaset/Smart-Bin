@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;700&display=swap');
+.kanit-extralight {
+    font-family: "Kanit", serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .kanit-regular {
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .kanit-bold {
+    font-family: "Kanit", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+body {
+    font-family: "Kanit";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+}
+ 
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.menu {
+    width: 280px;
+    height: 100%;
+    overflow: hidden; /* ปิดการเลื่อนในส่วนของเมนู */
+    background-color: #fff;
+    color: #2eaf7d;
+}
+
+.content {
+    background-color: #f4f7fe;
+    flex: 1; /* ใช้ flex ให้ content ขยายเต็มพื้นที่ที่เหลือ */
+    height: 100%;
+    overflow-y: auto; /* เปิดการเลื่อนในส่วนของ content */
+    padding-left: 20px;
+}
+.logo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.underline-logo {
+    width: 95%;
+    margin: 0 auto;
+    height: 1px;
+    background-color: #ededed;
+    margin-bottom: 20px;
+}
+.nav{
+    font-size: 18px;
+}
+.menu-list ul li{
+    list-style: none;
+}
+.menu-list ul li i{
+    margin-right: 10px;
+}
+.menu-list ul li a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 9.5px 8px;
+    color: #8e8e8e;
+    font-size: 14px;
+    
+}
+.menu ul li a:hover{
+    background-color: #f6f6f6;
+    width: 90%;
+    border-radius: 10px;
+}
+.overview{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+.dashboard{
+    width: 29%;
+    padding: 15px;
+    height: 80px;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.dashboard-detail{
+    width: 75%;
+    margin-left: 20px;
+}
+.dashboard-detail .text{
+    font-size: 1rem;
+}
+.dashboard-detail .number{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.dashborad-icon{
+    font-size: 2.5rem;
+    color: #2eaf7d;
+    background-color: #f4f7fe;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 100px;
+}
+.trash-chart{
+    display: flex;
+    flex-wrap: wrap;
+}
+.title-trash{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-trash i{
+    font-size: 1.4rem;
+    padding: 10px 15px;
+    color: #2eaf7d;
+    background-color: #f4f7fe;
+    border-radius: 10px;
+}
+.trash-h{
+    width: 60%;
+    padding: 15px;
+    height: 425px;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.trash-d{
+    width: 30%;
+    padding: 15px;
+    height: 425px;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.trash-m{
+    width: 94%;
+    padding: 15px;
+    height: 455px;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.head{
+    margin-top: 40px;
+}
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .menu {
+      width: 100%;
+      height: auto;
+      overflow-y: auto;
+    }
+    .nav {
+        display: none; /* ซ่อนชื่อเมนูเมื่อหน้าจอเล็กกว่า 768px */
+      }
+      .underline-logo{
+        margin-bottom: 0;
+      }
+    .content {
+      padding: 10px;
+    }
+  
+    .overview {
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+    }
+    .head{
+        text-align: center;
+        margin-top: 0;
+    }
+  
+    .dashboard {
+      width: 90%;
+      margin: 10px 0;
+    }
+  
+    .trash-chart {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .trash-h,
+    .trash-d,
+    .trash-m {
+      width: 90%;
+      margin: 10px 0;
+    }
+  }
+  

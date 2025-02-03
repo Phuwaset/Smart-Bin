@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu">
+        <div class="logo">
+          <h3>ถังคัดแยกพลาสติกอัจฉริยะ</h3>
+        </div>
+        <div class="underline-logo"></div>
+        <div class="nav">
+          <div class="menu-list">
+            <ul>
+              <li style="border-right: 3px solid #2eaf7d">
+                <a href="index.html" style="color: #2eaf7d">
+                  <i class="fa-solid fa-house"></i>
+                  <span class="text">Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="head">
+          <h1>ภาพรวม</h1>
+          <hr style="width: 98%" />
+        </div>
+        <div class="overview">
+          <div class="dashboard">
+            <div class="dashborad-icon">
+              <i class="fa-solid fa-trash-can"></i>
+            </div>
+            <div class="dashboard-detail">
+              <p class="text">จำนวนขวดที่ถูกทิ้งทั้งหมด</p>
+              <p class="number">57</p>
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="dashborad-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div class="dashboard-detail">
+              <p class="text">จำนวนขวดที่ถูกทิ้งวันนี้</p>
+              <p class="number">57</p>
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="dashborad-icon">
+              <i class="fa-regular fa-calendar"></i>
+            </div>
+            <div class="dashboard-detail">
+              <p class="text">จำนวนขวดที่ถูกทิ้งเดือนนี้</p>
+              <p class="number">57</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="trash-chart">
+          <div class="trash-h">
+            <div class="title-trash">
+              <p style="padding: 10px; font-size: 1.2rem; font-weight: 600">
+                จำนวนขวดที่ถูกทิ้งรายชั่วโมง
+              </p>
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <div id="chart-h"></div>
+          </div>
+          <div class="trash-d">
+            <div class="title-trash">
+              <p style="padding: 10px; font-size: 1.2rem; font-weight: 400">
+                จำนวนขวดที่ถูกทิ้งรายวัน
+              </p>
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <div id="chart-d"></div>
+          </div>
+          <div class="trash-m">
+            <div class="title-trash">
+              <p style="padding: 10px; font-size: 1.2rem; font-weight: 600">
+                จำนวนขวดที่ถูกทิ้งรายเดือน
+              </p>
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <div id="chart-m"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script
+    src="https://kit.fontawesome.com/a2be86925b.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    // กราฟแบบพื้นที่ (Area Chart)
+    var optionsArea = {
+      chart: {
+        height: 350,
+        type: "area",
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.7,
+          opacityTo: 0.9,
+          stops: [0, 90, 100],
+        },
+      },
+      series: [
+        {
+          name: "จำนวนขวดที่ถูกทิ้งรายชั่วโมง",
+          data: [5, 2, 7, 4, 15, 3, 9, 12, 9, 20, 9, 6, 4, 0],
+        },
+      ],
+      xaxis: {
+        categories: [
+          "7 am",
+          "8 am",
+          "9 am",
+          "10 am",
+          "11 am",
+          "12 am",
+          "1 pm",
+          "2 pm",
+          "3 pm",
+          "4 pm",
+          "5 pm",
+          "6 pm",
+          "7 pm",
+          "8 pm",
+        ],
+      },
+      colors: ["#59d584"],
+    };
+    var chartArea = new ApexCharts(
+      document.querySelector("#chart-h"),
+      optionsArea
+    );
+    chartArea.render();
+
+    // กราฟแท่ง (Bar Chart)
+    var optionsBar = {
+      chart: {
+        height: 350,
+        type: "bar",
+      },
+      series: [
+        {
+          name: "จำนวนขวดที่ถูกทิ้งรายวัน",
+          data: [10, 20, 15, 25, 30, 35, 40],
+        },
+      ],
+      xaxis: {
+        categories: [
+          "วันจันทร์",
+          "วันอังคาร",
+          "วันพุธ",
+          "วันพฤหัสบดี",
+          "วันศุกร์",
+          "วันเสาร์",
+          "วันอาทิตย์",
+        ],
+      },
+      colors: ["#59d584"],
+    };
+    var chartBar = new ApexCharts(
+      document.querySelector("#chart-d"),
+      optionsBar
+    );
+    chartBar.render();
+
+    //กราฟแนวนอน
+    var options = {
+      series: [
+        {
+          name: "จำนวนขวดที่ถูกทิ้งต่อเดือน",
+          data: [174, 230, 148, 70, 99, 145, 190, 110, 120, 138, 180, 167],
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 380,
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          borderRadiusApplication: "end",
+          horizontal: true,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      xaxis: {
+        categories: [
+          "มกราคา",
+          "กุมภาพันธ์",
+          "มีนาคม",
+          "เมษายน",
+          "พฤษภาคม",
+          "มิถุนายน",
+          "กรกฎาคม",
+          "สิงหาคม",
+          "กันยายน",
+          "ตุลาคม",
+          "พฤศจิกายน",
+          "ธันวาคม"
+        ],
+      },
+      colors: ["#59d584"],
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart-m"), options);
+    chart.render();
+  </script>
+</html>
